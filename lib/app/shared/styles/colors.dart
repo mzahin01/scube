@@ -4,7 +4,7 @@ class SGColors {
   SGColors._();
   // Basic Colors
   static const Color red = Color(0xffFF504D);
-  static const Color blue = Color(0xff4F73C9);
+  static const Color blue = Color(0xff0096fc);
   static const Color green = Color(0xFF2E7D32);
   static const Color lightGreen = Color(0xFF66BB6A);
   static const Color deepBlue = Color(0xff164157);
