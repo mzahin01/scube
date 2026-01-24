@@ -1,4 +1,5 @@
 import 'package:flutter/material.dart';
+import '../../../shared/const/image_asset.dart';
 import '../../../shared/styles/colors.dart';
 import '../controllers/page_two_controller.dart';
 
@@ -8,18 +9,18 @@ class DataItemCard extends StatelessWidget {
 
   const DataItemCard({super.key, required this.item, required this.onTap});
 
-  IconData _getIconForType(DataIconType type) {
+  String _getImageForType(DataIconType type) {
     switch (type) {
       case DataIconType.solarPanel:
-        return Icons.solar_power;
+        return ImageAsset.solarPanel;
       case DataIconType.battery:
-        return Icons.battery_charging_full;
+        return ImageAsset.battery;
       case DataIconType.transmissionTower:
-        return Icons.cell_tower;
+        return ImageAsset.transmissionTower;
       case DataIconType.windTurbine:
-        return Icons.wind_power;
+        return ImageAsset.solarPanel;
       case DataIconType.factory:
-        return Icons.factory;
+        return ImageAsset.transmissionTower;
     }
   }
 
@@ -46,12 +47,11 @@ class DataItemCard extends StatelessWidget {
                 borderRadius: BorderRadius.circular(10),
                 border: Border.all(color: SGColors.whiteShade2),
               ),
-              child: Icon(
-                _getIconForType(item.iconType),
-                size: 24,
-                color: item.iconColor == DataIconColor.blue
-                    ? SGColors.blue
-                    : SGColors.orange,
+              child: Image.asset(
+                _getImageForType(item.iconType),
+                width: 24,
+                height: 24,
+                fit: BoxFit.contain,
               ),
             ),
             const SizedBox(width: 12),

@@ -42,10 +42,10 @@ class MainTabBar extends StatelessWidget {
         child: Container(
           padding: const EdgeInsets.symmetric(vertical: 14),
           decoration: BoxDecoration(
-            color: isSelected ? SGColors.deepBlue : SGColors.white,
+            color: isSelected ? SGColors.blue : SGColors.white,
             borderRadius: BorderRadius.only(
-              topLeft: isFirst ? const Radius.circular(16) : Radius.zero,
-              topRight: isLast ? const Radius.circular(16) : Radius.zero,
+              topLeft: const Radius.circular(16),
+              topRight: const Radius.circular(16),
             ),
           ),
           child: Text(

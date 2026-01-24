@@ -8,5 +8,8 @@ class ImageAsset {
   static const String charge = 'assets/pngs/charge_73453741.png';
   static const String fire = 'assets/pngs/fire_39005091.png';
   static const String faucet = 'assets/pngs/faucet_1078798.png';
+  static const String transmissionTower = 'assets/pngs/ect1.png';
+  static const String solarPanel = 'assets/pngs/ect2.png';
+  static const String battery = 'assets/pngs/ect3.png';
   ImageAsset._();
 }

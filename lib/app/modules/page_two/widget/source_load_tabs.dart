@@ -40,7 +40,7 @@ class SourceLoadTabs extends StatelessWidget {
             child: Text(
               label,
               style: TextStyle(
-                fontSize: 14,
+                fontSize: 18,
                 fontWeight: FontWeight.w600,
                 color: isSelected ? SGColors.white : SGColors.secondaryText,
               ),
