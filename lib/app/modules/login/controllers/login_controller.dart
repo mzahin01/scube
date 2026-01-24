@@ -40,9 +40,9 @@ class LoginController extends GetxController {
     if (formKey.currentState!.validate()) {
       isLoading.value = true;
 
-      Future.delayed(const Duration(milliseconds: 10), () {
-        isLoading.value = false;
+      Future.delayed(const Duration(milliseconds: 1000), () {
         Get.toNamed(Routes.PAGE_ONE);
+        isLoading.value = false;
         // Navigate to home or dashboard
         // Get.offAllNamed(Routes.HOME);
       });

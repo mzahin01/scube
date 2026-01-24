@@ -1,5 +1,7 @@
 import 'package:get/get.dart';
 
+import '../../../routes/app_pages.dart';
+
 class PageOneController extends GetxController {
   // Header Stats
   final liveAcPower = '10000 kW'.obs;
@@ -63,7 +65,7 @@ class PageOneController extends GetxController {
 
   void onNavigateToSecondPage() {
     // Navigate to second page
-    Get.snackbar('Info', 'Navigating to 2nd Page');
+    Get.toNamed(Routes.PAGE_TWO);
   }
 
   void onNotificationTap() {

@@ -15,6 +15,8 @@ class SGColors {
   static const Color orange = Color(0xFFFF9800);
   static const Color teal = Color(0xFF009688);
   static const Color cyan = Color(0xFF00BCD4);
+  static const Color lightBlue = Color(0xFF64D2FF);
+  static const Color skyBlue = Color(0xFF5BC0EB);
 
   // Material Shades
   static const Color blackShade1 = Color(0xff3f4755);
@@ -23,12 +25,16 @@ class SGColors {
   static const Color whiteShade1 = Color(0xfff5f6f8);
   static const Color whiteShade2 = Color(0xffe8e8ed);
   static const Color whiteShade3 = Color(0xffc1c7d2);
+  static const Color blueShade1 = Color(0xFFE3F2FD);
+  static const Color blueShade2 = Color(0xFFBBDEFB);
 
   // Semantic Colors
   static const Color success = Color(0xFF4CAF50);
   static const Color warning = Color(0xFFFFC107);
   static const Color error = Color(0xFFD32F2F);
   static const Color info = Color(0xFF2196F3);
+  static const Color active = Color(0xFF4CAF50);
+  static const Color inactive = Color(0xFFFF5252);
 
   // Background Colors
   static const Color scaffoldBackground = Color(0xFFF5F5F5);
