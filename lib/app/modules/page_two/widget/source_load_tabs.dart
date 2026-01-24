@@ -33,7 +33,7 @@ class SourceLoadTabs extends StatelessWidget {
         child: Container(
           margin: const EdgeInsets.all(4),
           decoration: BoxDecoration(
-            color: isSelected ? SGColors.deepBlue : Colors.transparent,
+            color: isSelected ? SGColors.blue : Colors.transparent,
             borderRadius: BorderRadius.circular(20),
           ),
           child: Center(

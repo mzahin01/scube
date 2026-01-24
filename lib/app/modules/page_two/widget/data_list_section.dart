@@ -6,21 +6,41 @@ import '../../../shared/styles/colors.dart';
 import '../controllers/page_two_controller.dart';
 import 'data_item_card.dart';
 
-class DataListSection extends StatelessWidget {
+class DataListSection extends StatefulWidget {
   final PageTwoController controller;
 
   const DataListSection({super.key, required this.controller});
 
   @override
+  State<DataListSection> createState() => _DataListSectionState();
+}
+
+class _DataListSectionState extends State<DataListSection> {
+  late ScrollController _scrollController;
+
+  @override
+  void initState() {
+    super.initState();
+    _scrollController = ScrollController();
+  }
+
+  @override
+  void dispose() {
+    _scrollController.dispose();
+    super.dispose();
+  }
+
+  @override
   Widget build(BuildContext context) {
     return Padding(
-      padding: const EdgeInsets.symmetric(horizontal: 12),
+      padding: const EdgeInsets.only(left: 12, right: 8),
       child: Stack(
         children: [
           SizedBox(
             height: 300,
             child: Obx(
               () => RawScrollbar(
+                controller: _scrollController,
                 thumbColor: SGColors.blue,
                 trackColor:
                     SGColors.blueShade1, // Matching screenshot track color
@@ -32,16 +52,17 @@ class DataListSection extends StatelessWidget {
                 // Padding top and bottom to make the tracker height smaller
                 padding: const EdgeInsets.only(right: 2, top: 20, bottom: 20),
                 child: ListView.builder(
+                  controller: _scrollController,
                   physics: const BouncingScrollPhysics(),
-                  itemCount: controller.dataList.length,
+                  itemCount: widget.controller.dataList.length,
                   padding: const EdgeInsets.only(
                     right: 14,
                   ), // Space for scrollbar
                   itemBuilder: (context, index) {
-                    final item = controller.dataList[index];
+                    final item = widget.controller.dataList[index];
                     return DataItemCard(
                       item: item,
-                      onTap: () => controller.onDataItemTap(item),
+                      onTap: () => widget.controller.onDataItemTap(item),
                     );
                   },
                 ),

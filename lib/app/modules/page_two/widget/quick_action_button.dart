@@ -2,15 +2,15 @@ import 'package:flutter/material.dart';
 import '../../../shared/styles/colors.dart';
 
 class QuickActionButton extends StatelessWidget {
-  final IconData icon;
-  final Color iconColor;
+  final IconData? icon;
+  final String svgIcon;
   final String label;
   final VoidCallback onTap;
 
   const QuickActionButton({
     super.key,
-    required this.icon,
-    required this.iconColor,
+    this.icon,
+    required this.svgIcon,
     required this.label,
     required this.onTap,
   });
@@ -32,19 +32,25 @@ class QuickActionButton extends StatelessWidget {
               width: 36,
               height: 36,
               decoration: BoxDecoration(
-                color: iconColor.withAlpha(30),
                 borderRadius: BorderRadius.circular(10),
               ),
-              child: Icon(icon, size: 20, color: iconColor),
+              child: Center(
+                child: Image.asset(
+                  svgIcon,
+                  width: 25,
+                  height: 25,
+                  fit: BoxFit.contain,
+                ),
+              ),
             ),
             const SizedBox(width: 10),
             Expanded(
               child: Text(
                 label,
                 style: const TextStyle(
-                  fontSize: 13,
-                  fontWeight: FontWeight.w600,
-                  color: SGColors.deepBlue,
+                  fontSize: 16,
+                  fontWeight: FontWeight.w800,
+                  color: SGColors.blackShade2,
                 ),
               ),
             ),
