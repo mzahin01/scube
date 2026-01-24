@@ -1,5 +1,6 @@
 import 'package:flutter/material.dart';
 import 'package:get/get.dart';
+import '../../../shared/styles/colors.dart';
 
 class LoginController extends GetxController {
   final formKey = GlobalKey<FormState>();
@@ -38,14 +39,13 @@ class LoginController extends GetxController {
     if (formKey.currentState!.validate()) {
       isLoading.value = true;
 
-      // Simulate login
       Future.delayed(const Duration(milliseconds: 10), () {
         isLoading.value = false;
         Get.snackbar(
           'Success',
           'Login successful!',
-          backgroundColor: Colors.green,
-          colorText: Colors.white,
+          backgroundColor: SGColors.success,
+          colorText: SGColors.white,
         );
         // Navigate to home or dashboard
         // Get.offAllNamed(Routes.HOME);
@@ -57,8 +57,8 @@ class LoginController extends GetxController {
     Get.snackbar(
       'Info',
       'Forgot password feature coming soon',
-      backgroundColor: Colors.blue,
-      colorText: Colors.white,
+      backgroundColor: SGColors.info,
+      colorText: SGColors.white,
     );
   }
 
@@ -66,8 +66,8 @@ class LoginController extends GetxController {
     Get.snackbar(
       'Info',
       'Register feature coming soon',
-      backgroundColor: Colors.blue,
-      colorText: Colors.white,
+      backgroundColor: SGColors.info,
+      colorText: SGColors.white,
     );
   }
 }
