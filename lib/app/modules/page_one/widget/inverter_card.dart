@@ -1,4 +1,5 @@
 import 'package:flutter/material.dart';
+import '../../../shared/const/image_asset.dart';
 import '../../../shared/styles/colors.dart';
 import '../controllers/page_one_controller.dart';
 
@@ -65,7 +66,7 @@ class InverterCard extends StatelessWidget {
             children: [
               Expanded(
                 child: InverterInfoItem(
-                  iconData: Icons.battery_full,
+                  imagePath: ImageAsset.lifetimeEnergy,
                   iconColor: SGColors.blue,
                   label: 'Lifetime Energy',
                   value: data.lifetimeEnergy,
@@ -73,7 +74,7 @@ class InverterCard extends StatelessWidget {
               ),
               Expanded(
                 child: InverterInfoItem(
-                  iconData: Icons.today,
+                  imagePath: ImageAsset.todayEnergy,
                   iconColor: SGColors.orange,
                   label: 'Today Energy',
                   value: data.todayEnergy,
@@ -86,7 +87,7 @@ class InverterCard extends StatelessWidget {
             children: [
               Expanded(
                 child: InverterInfoItem(
-                  iconData: Icons.history,
+                  imagePath: ImageAsset.prevMeterEnergy,
                   iconColor: SGColors.red,
                   label: 'Prev. Meter Energy',
                   value: data.prevMeterEnergy,
@@ -94,7 +95,7 @@ class InverterCard extends StatelessWidget {
               ),
               Expanded(
                 child: InverterInfoItem(
-                  iconData: Icons.power,
+                  imagePath: ImageAsset.livePower,
                   iconColor: SGColors.teal,
                   label: 'Live Power',
                   value: data.livePower,
@@ -109,14 +110,14 @@ class InverterCard extends StatelessWidget {
 }
 
 class InverterInfoItem extends StatelessWidget {
-  final IconData iconData;
+  final String imagePath;
   final Color iconColor;
   final String label;
   final String value;
 
   const InverterInfoItem({
     super.key,
-    required this.iconData,
+    required this.imagePath,
     required this.iconColor,
     required this.label,
     required this.value,
@@ -133,7 +134,12 @@ class InverterInfoItem extends StatelessWidget {
             color: iconColor.withAlpha(30),
             borderRadius: BorderRadius.circular(8),
           ),
-          child: Icon(iconData, size: 18, color: iconColor),
+          child: Image.asset(
+            imagePath,
+            width: 18,
+            height: 18,
+            fit: BoxFit.contain,
+          ),
         ),
         const SizedBox(width: 10),
         Expanded(

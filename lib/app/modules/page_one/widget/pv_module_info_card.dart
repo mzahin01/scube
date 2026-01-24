@@ -1,5 +1,6 @@
 import 'package:flutter/material.dart';
 import 'package:get/get.dart';
+import '../../../shared/const/image_asset.dart';
 import '../../../shared/styles/colors.dart';
 import '../controllers/page_one_controller.dart';
 
@@ -27,14 +28,15 @@ class PVModuleInfoCard extends StatelessWidget {
                 Container(
                   width: 32,
                   height: 32,
+                  padding: const EdgeInsets.all(6),
                   decoration: BoxDecoration(
                     color: SGColors.blue.withAlpha(30),
                     borderRadius: BorderRadius.circular(8),
                   ),
-                  child: const Icon(
-                    Icons.solar_power,
-                    size: 18,
-                    color: SGColors.blue,
+                  child: Image.asset(
+                    ImageAsset.solarPanelBlue,
+                    width: 18,
+                    height: 18,
                   ),
                 ),
                 const SizedBox(width: 10),
@@ -67,8 +69,8 @@ class PVModuleInfoCard extends StatelessWidget {
                 Expanded(
                   child: Obx(
                     () => InfoItem(
-                      iconData: Icons.electrical_services,
-                      iconColor: SGColors.blue,
+                      iconPath: ImageAsset.percentage,
+                      backgroundColor: SGColors.blue.withAlpha(30),
                       label: 'Total AC Capacity',
                       value: controller.totalAcCapacity.value,
                     ),
@@ -77,8 +79,8 @@ class PVModuleInfoCard extends StatelessWidget {
                 Expanded(
                   child: Obx(
                     () => InfoItem(
-                      iconData: Icons.battery_charging_full,
-                      iconColor: SGColors.success,
+                      iconPath: ImageAsset.server,
+                      backgroundColor: SGColors.success.withAlpha(30),
                       label: 'Total DC Capacity',
                       value: controller.totalDcCapacity.value,
                     ),
@@ -92,8 +94,8 @@ class PVModuleInfoCard extends StatelessWidget {
                 Expanded(
                   child: Obx(
                     () => InfoItem(
-                      iconData: Icons.calendar_today,
-                      iconColor: SGColors.orange,
+                      iconPath: ImageAsset.calendar,
+                      backgroundColor: SGColors.orange.withAlpha(30),
                       label: 'Date of Commissioning',
                       value: controller.dateOfCommissioning.value,
                     ),
@@ -102,8 +104,8 @@ class PVModuleInfoCard extends StatelessWidget {
                 Expanded(
                   child: Obx(
                     () => InfoItem(
-                      iconData: Icons.developer_board,
-                      iconColor: SGColors.purple,
+                      iconPath: ImageAsset.globe,
+                      backgroundColor: SGColors.purple.withAlpha(30),
                       label: 'Number of Inverter',
                       value: controller.numberOfInverters.value,
                     ),
@@ -117,8 +119,8 @@ class PVModuleInfoCard extends StatelessWidget {
                 Expanded(
                   child: Obx(
                     () => InfoItem(
-                      iconData: Icons.electrical_services,
-                      iconColor: SGColors.blue,
+                      iconPath: ImageAsset.blues7,
+                      backgroundColor: SGColors.blue.withAlpha(30),
                       label: 'Total AC Capacity',
                       value: controller.totalAcCapacity.value,
                     ),
@@ -127,8 +129,8 @@ class PVModuleInfoCard extends StatelessWidget {
                 Expanded(
                   child: Obx(
                     () => InfoItem(
-                      iconData: Icons.battery_charging_full,
-                      iconColor: SGColors.success,
+                      iconPath: ImageAsset.blues6,
+                      backgroundColor: SGColors.success.withAlpha(30),
                       label: 'Total DC Capacity',
                       value: controller.totalDcCapacity.value,
                     ),
@@ -144,15 +146,15 @@ class PVModuleInfoCard extends StatelessWidget {
 }
 
 class InfoItem extends StatelessWidget {
-  final IconData iconData;
-  final Color iconColor;
+  final String iconPath;
+  final Color backgroundColor;
   final String label;
   final String value;
 
   const InfoItem({
     super.key,
-    required this.iconData,
-    required this.iconColor,
+    required this.iconPath,
+    required this.backgroundColor,
     required this.label,
     required this.value,
   });
@@ -164,11 +166,12 @@ class InfoItem extends StatelessWidget {
         Container(
           width: 28,
           height: 28,
+          padding: const EdgeInsets.all(5),
           decoration: BoxDecoration(
-            color: iconColor.withAlpha(30),
+            // color: backgroundColor,
             borderRadius: BorderRadius.circular(8),
           ),
-          child: Icon(iconData, size: 16, color: iconColor),
+          child: Image.asset(iconPath, width: 16, height: 16),
         ),
         const SizedBox(width: 8),
         Expanded(
