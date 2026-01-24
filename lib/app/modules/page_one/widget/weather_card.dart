@@ -1,5 +1,6 @@
 import 'package:flutter/material.dart';
 import 'package:get/get.dart';
+import '../../../shared/const/image_asset.dart';
 import '../../../shared/styles/colors.dart';
 import '../controllers/page_one_controller.dart';
 
@@ -62,23 +63,11 @@ class WeatherCard extends StatelessWidget {
                   Row(
                     mainAxisAlignment: MainAxisAlignment.end,
                     children: [
-                      Stack(
-                        children: [
-                          const Icon(
-                            Icons.wb_sunny,
-                            size: 36,
-                            color: Color(0xFFFFD54F),
-                          ),
-                          Positioned(
-                            bottom: 0,
-                            right: 0,
-                            child: Icon(
-                              Icons.cloud,
-                              size: 20,
-                              color: SGColors.white.withAlpha(200),
-                            ),
-                          ),
-                        ],
+                      Image.asset(
+                        ImageAsset.cloude,
+                        width: 48,
+                        height: 48,
+                        fit: BoxFit.contain,
                       ),
                     ],
                   ),

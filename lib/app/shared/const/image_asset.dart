@@ -23,6 +23,7 @@ class ImageAsset {
   static const String solarPanelBlue = 'assets/pngs/blues5.png';
   static const String blues6 = 'assets/pngs/blues6.png';
   static const String blues7 = 'assets/pngs/blues7.png';
+  static const String cloude = 'assets/pngs/cloude.png';
 
   ImageAsset._();
 }

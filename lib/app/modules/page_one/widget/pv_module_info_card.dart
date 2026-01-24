@@ -13,24 +13,23 @@ class PVModuleInfoCard extends StatelessWidget {
   Widget build(BuildContext context) {
     return Padding(
       padding: const EdgeInsets.symmetric(horizontal: 16),
-      child: Container(
-        padding: const EdgeInsets.all(16),
-        decoration: BoxDecoration(
-          color: SGColors.white,
-          borderRadius: BorderRadius.circular(16),
-          border: Border.all(color: SGColors.whiteShade2),
-        ),
-        child: Column(
-          children: [
-            // Header row
-            Row(
+      child: Column(
+        children: [
+          // Header row
+          Container(
+            height: 40,
+            decoration: BoxDecoration(
+              color: SGColors.white,
+              borderRadius: BorderRadius.circular(8),
+              border: Border.all(color: SGColors.whiteShade2),
+            ),
+            child: Row(
               children: [
                 Container(
                   width: 32,
                   height: 32,
                   padding: const EdgeInsets.all(6),
                   decoration: BoxDecoration(
-                    color: SGColors.blue.withAlpha(30),
                     borderRadius: BorderRadius.circular(8),
                   ),
                   child: Image.asset(
@@ -62,11 +61,19 @@ class PVModuleInfoCard extends StatelessWidget {
                 ),
               ],
             ),
-            const SizedBox(height: 16),
-            // Info rows
-            Row(
-              children: [
-                Expanded(
+          ),
+          const SizedBox(height: 8),
+          // Info rows
+          Row(
+            children: [
+              Expanded(
+                child: Container(
+                  padding: const EdgeInsets.all(8),
+                  decoration: BoxDecoration(
+                    color: SGColors.white,
+                    borderRadius: BorderRadius.circular(12),
+                    border: Border.all(color: SGColors.whiteShade2),
+                  ),
                   child: Obx(
                     () => InfoItem(
                       iconPath: ImageAsset.percentage,
@@ -76,7 +83,16 @@ class PVModuleInfoCard extends StatelessWidget {
                     ),
                   ),
                 ),
-                Expanded(
+              ),
+              const SizedBox(width: 8),
+              Expanded(
+                child: Container(
+                  padding: const EdgeInsets.all(12),
+                  decoration: BoxDecoration(
+                    color: SGColors.white,
+                    borderRadius: BorderRadius.circular(12),
+                    border: Border.all(color: SGColors.whiteShade2),
+                  ),
                   child: Obx(
                     () => InfoItem(
                       iconPath: ImageAsset.server,
@@ -86,12 +102,20 @@ class PVModuleInfoCard extends StatelessWidget {
                     ),
                   ),
                 ),
-              ],
-            ),
-            const SizedBox(height: 14),
-            Row(
-              children: [
-                Expanded(
+              ),
+            ],
+          ),
+          const SizedBox(height: 8),
+          Row(
+            children: [
+              Expanded(
+                child: Container(
+                  padding: const EdgeInsets.all(12),
+                  decoration: BoxDecoration(
+                    color: SGColors.white,
+                    borderRadius: BorderRadius.circular(12),
+                    border: Border.all(color: SGColors.whiteShade2),
+                  ),
                   child: Obx(
                     () => InfoItem(
                       iconPath: ImageAsset.calendar,
@@ -101,7 +125,16 @@ class PVModuleInfoCard extends StatelessWidget {
                     ),
                   ),
                 ),
-                Expanded(
+              ),
+              const SizedBox(width: 8),
+              Expanded(
+                child: Container(
+                  padding: const EdgeInsets.all(12),
+                  decoration: BoxDecoration(
+                    color: SGColors.white,
+                    borderRadius: BorderRadius.circular(12),
+                    border: Border.all(color: SGColors.whiteShade2),
+                  ),
                   child: Obx(
                     () => InfoItem(
                       iconPath: ImageAsset.globe,
@@ -111,12 +144,20 @@ class PVModuleInfoCard extends StatelessWidget {
                     ),
                   ),
                 ),
-              ],
-            ),
-            const SizedBox(height: 14),
-            Row(
-              children: [
-                Expanded(
+              ),
+            ],
+          ),
+          const SizedBox(height: 8),
+          Row(
+            children: [
+              Expanded(
+                child: Container(
+                  padding: const EdgeInsets.all(12),
+                  decoration: BoxDecoration(
+                    color: SGColors.white,
+                    borderRadius: BorderRadius.circular(12),
+                    border: Border.all(color: SGColors.whiteShade2),
+                  ),
                   child: Obx(
                     () => InfoItem(
                       iconPath: ImageAsset.blues7,
@@ -126,7 +167,16 @@ class PVModuleInfoCard extends StatelessWidget {
                     ),
                   ),
                 ),
-                Expanded(
+              ),
+              const SizedBox(width: 8),
+              Expanded(
+                child: Container(
+                  padding: const EdgeInsets.all(12),
+                  decoration: BoxDecoration(
+                    color: SGColors.white,
+                    borderRadius: BorderRadius.circular(12),
+                    border: Border.all(color: SGColors.whiteShade2),
+                  ),
                   child: Obx(
                     () => InfoItem(
                       iconPath: ImageAsset.blues6,
@@ -136,10 +186,10 @@ class PVModuleInfoCard extends StatelessWidget {
                     ),
                   ),
                 ),
-              ],
-            ),
-          ],
-        ),
+              ),
+            ],
+          ),
+        ],
       ),
     );
   }
@@ -166,7 +216,7 @@ class InfoItem extends StatelessWidget {
         Container(
           width: 28,
           height: 28,
-          padding: const EdgeInsets.all(5),
+          padding: const EdgeInsets.all(0),
           decoration: BoxDecoration(
             // color: backgroundColor,
             borderRadius: BorderRadius.circular(8),

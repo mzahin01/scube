@@ -44,7 +44,7 @@ class InverterCard extends StatelessWidget {
                     child: const Icon(
                       Icons.check_circle,
                       size: 14,
-                      color: SGColors.success,
+                      color: SGColors.blue,
                     ),
                   ),
                   const SizedBox(width: 6),
@@ -52,7 +52,7 @@ class InverterCard extends StatelessWidget {
                     data.status,
                     style: const TextStyle(
                       fontSize: 12,
-                      color: SGColors.success,
+                      color: SGColors.blue,
                       fontWeight: FontWeight.w500,
                     ),
                   ),

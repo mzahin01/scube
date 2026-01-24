@@ -15,9 +15,8 @@ class DataComparisonTable extends StatelessWidget {
       child: Container(
         padding: const EdgeInsets.symmetric(horizontal: 16, vertical: 20),
         decoration: BoxDecoration(
-          color: SGColors.white,
+          color: SGColors.blueShade1,
           borderRadius: BorderRadius.circular(16),
-          border: Border.all(color: SGColors.whiteShade2),
         ),
         child: Column(
           children: [
@@ -51,7 +50,7 @@ class DataComparisonTable extends StatelessWidget {
                 ),
               ],
             ),
-            const Divider(height: 24, color: SGColors.whiteShade2),
+            const Divider(height: 24, color: SGColors.whiteShade3),
             Obx(
               () => DataRowWidget(
                 label: 'AC Max Power',
