@@ -3,7 +3,6 @@ import 'package:get/get.dart';
 import '../../../shared/styles/colors.dart';
 import '../controllers/page_one_controller.dart';
 
-// ==================== APP BAR ====================
 class PageOneAppBar extends StatelessWidget {
   final PageOneController controller;
 
@@ -73,7 +72,6 @@ class PageOneAppBar extends StatelessWidget {
   }
 }
 
-// ==================== NAVIGATE BUTTON ====================
 class NavigateButton extends StatelessWidget {
   final PageOneController controller;
 
@@ -116,7 +114,6 @@ class NavigateButton extends StatelessWidget {
   }
 }
 
-// ==================== STATS GRID ====================
 class StatsGrid extends StatelessWidget {
   final PageOneController controller;
 
@@ -264,7 +261,6 @@ class StatCard extends StatelessWidget {
   }
 }
 
-// ==================== WEATHER CARD ====================
 class WeatherCard extends StatelessWidget {
   final PageOneController controller;
 
@@ -465,7 +461,6 @@ class WeatherCard extends StatelessWidget {
   }
 }
 
-// ==================== DATA COMPARISON TABLE ====================
 class DataComparisonTable extends StatelessWidget {
   final PageOneController controller;
 
@@ -613,7 +608,6 @@ class DataRowWidget extends StatelessWidget {
   }
 }
 
-// ==================== PV MODULE INFO CARD ====================
 class PVModuleInfoCard extends StatelessWidget {
   final PageOneController controller;
 
@@ -809,7 +803,6 @@ class InfoItem extends StatelessWidget {
   }
 }
 
-// ==================== INVERTER CARD ====================
 class InverterCard extends StatelessWidget {
   final InverterData data;
 

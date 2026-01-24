@@ -1,6 +1,8 @@
-import 'dart:math' as math;
+// ignore_for_file: deprecated_member_use
+
 import 'package:flutter/material.dart';
 import 'package:get/get.dart';
+import 'package:fl_chart/fl_chart.dart';
 import '../../../shared/styles/colors.dart';
 import '../controllers/page_two_controller.dart';
 
@@ -230,12 +232,32 @@ class DonutChart extends StatelessWidget {
   Widget build(BuildContext context) {
     return SizedBox(
       width: 180,
-      height: 180,
+      height: 220,
       child: Stack(
         alignment: Alignment.center,
         children: [
-          // Donut ring
-          CustomPaint(size: const Size(180, 180), painter: DonutChartPainter()),
+          // Pie Chart using fl_chart
+          PieChart(
+            PieChartData(
+              sectionsSpace: 0,
+              centerSpaceRadius: 75,
+              startDegreeOffset: -90,
+              sections: [
+                PieChartSectionData(
+                  color: SGColors.blue,
+                  value: 75,
+                  title: '',
+                  radius: 30,
+                ),
+                PieChartSectionData(
+                  color: SGColors.skyBlue.withAlpha(80),
+                  value: 25,
+                  title: '',
+                  radius: 30,
+                ),
+              ],
+            ),
+          ),
           // Center text
           Obx(
             () => Column(
@@ -261,43 +283,6 @@ class DonutChart extends StatelessWidget {
       ),
     );
   }
-}
-
-class DonutChartPainter extends CustomPainter {
-  @override
-  void paint(Canvas canvas, Size size) {
-    final center = Offset(size.width / 2, size.height / 2);
-    final radius = size.width / 2;
-    const strokeWidth = 24.0;
-
-    // Background arc (light blue)
-    final bgPaint = Paint()
-      ..color = SGColors.skyBlue.withAlpha(80)
-      ..style = PaintingStyle.stroke
-      ..strokeWidth = strokeWidth
-      ..strokeCap = StrokeCap.round;
-
-    canvas.drawCircle(center, radius - strokeWidth / 2, bgPaint);
-
-    // Foreground arc (gradient effect with solid blue)
-    final fgPaint = Paint()
-      ..color = SGColors.blue
-      ..style = PaintingStyle.stroke
-      ..strokeWidth = strokeWidth
-      ..strokeCap = StrokeCap.round;
-
-    // Draw ~75% of circle
-    canvas.drawArc(
-      Rect.fromCircle(center: center, radius: radius - strokeWidth / 2),
-      -math.pi / 2, // Start from top
-      math.pi * 1.5, // 75% of circle
-      false,
-      fgPaint,
-    );
-  }
-
-  @override
-  bool shouldRepaint(covariant CustomPainter oldDelegate) => false;
 }
 
 class SourceLoadTabs extends StatelessWidget {
@@ -358,17 +343,62 @@ class DataListSection extends StatelessWidget {
   Widget build(BuildContext context) {
     return Padding(
       padding: const EdgeInsets.symmetric(horizontal: 12),
-      child: Obx(
-        () => Column(
-          children: controller.dataList
-              .map(
-                (item) => DataItemCard(
-                  item: item,
-                  onTap: () => controller.onDataItemTap(item),
+      child: Stack(
+        children: [
+          SizedBox(
+            height: 300,
+            child: Obx(
+              () => RawScrollbar(
+                thumbColor: SGColors.blue,
+                trackColor:
+                    SGColors.blueShade1, // Matching screenshot track color
+                trackVisibility: true,
+                thumbVisibility: true,
+                thickness: 6,
+                radius: const Radius.circular(3),
+                trackRadius: const Radius.circular(3),
+                // Padding top and bottom to make the tracker height smaller
+                padding: const EdgeInsets.only(right: 2, top: 20, bottom: 20),
+                child: ListView.builder(
+                  physics: const BouncingScrollPhysics(),
+                  itemCount: controller.dataList.length,
+                  padding: const EdgeInsets.only(
+                    right: 14,
+                  ), // Space for scrollbar
+                  itemBuilder: (context, index) {
+                    final item = controller.dataList[index];
+                    return DataItemCard(
+                      item: item,
+                      onTap: () => controller.onDataItemTap(item),
+                    );
+                  },
                 ),
-              )
-              .toList(),
-        ),
+              ),
+            ),
+          ),
+          // Bottom gradient fade
+          Positioned(
+            bottom: 0,
+            left: 0,
+            right: 0,
+            child: Container(
+              height: 60,
+              decoration: BoxDecoration(
+                gradient: LinearGradient(
+                  begin: Alignment.topCenter,
+                  end: Alignment.bottomCenter,
+                  colors: [
+                    SGColors.black.withOpacity(0.0),
+                    SGColors.black.withOpacity(0.2),
+                    SGColors.black.withOpacity(0.3),
+                    SGColors.black.withOpacity(0.5),
+                  ],
+                  stops: const [0.0, 0.3, 0.7, 1.0],
+                ),
+              ),
+            ),
+          ),
+        ],
       ),
     );
   }
@@ -379,6 +409,21 @@ class DataItemCard extends StatelessWidget {
   final VoidCallback onTap;
 
   const DataItemCard({super.key, required this.item, required this.onTap});
+
+  IconData _getIconForType(DataIconType type) {
+    switch (type) {
+      case DataIconType.solarPanel:
+        return Icons.solar_power;
+      case DataIconType.battery:
+        return Icons.battery_charging_full;
+      case DataIconType.transmissionTower:
+        return Icons.cell_tower;
+      case DataIconType.windTurbine:
+        return Icons.wind_power;
+      case DataIconType.factory:
+        return Icons.factory;
+    }
+  }
 
   @override
   Widget build(BuildContext context) {
@@ -404,7 +449,7 @@ class DataItemCard extends StatelessWidget {
                 border: Border.all(color: SGColors.whiteShade2),
               ),
               child: Icon(
-                Icons.solar_power,
+                _getIconForType(item.iconType),
                 size: 24,
                 color: item.iconColor == DataIconColor.blue
                     ? SGColors.blue
