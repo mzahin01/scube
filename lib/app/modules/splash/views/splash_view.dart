@@ -1,7 +1,6 @@
 import 'package:flutter/material.dart';
-import 'package:flutter_svg/flutter_svg.dart';
 import 'package:get/get.dart';
-
+import '../../../shared/const/image_asset.dart';
 import '../controllers/splash_controller.dart';
 
 class SplashView extends GetView<SplashController> {
@@ -23,11 +22,7 @@ class SplashView extends GetView<SplashController> {
           mainAxisAlignment: MainAxisAlignment.center,
           children: [
             // Logo
-            SvgPicture.asset(
-              'assets/svgs/main_logo.svg',
-              width: 120,
-              height: 120,
-            ),
+            Image.asset(ImageAsset.icon, width: 120, height: 120),
             const SizedBox(height: 32),
             // App Name
             const Text(
