@@ -24,6 +24,12 @@ class ImageAsset {
   static const String blues6 = 'assets/pngs/blues6.png';
   static const String blues7 = 'assets/pngs/blues7.png';
   static const String cloude = 'assets/pngs/cloude.png';
+  static const String liveAcPower = 'assets/pngs/LiveACPower.png';
+  static const String plantGeneration = 'assets/pngs/PlantGeneration.png';
+  static const String livePR = 'assets/pngs/LivePR.png';
+  static const String cumulativePR = 'assets/pngs/CumulativePR.png';
+  static const String returnPV = 'assets/pngs/ReturnPVTillToday.png';
+  static const String totalEnergyIcon = 'assets/pngs/TotalEnergy.png';
 
   ImageAsset._();
 }

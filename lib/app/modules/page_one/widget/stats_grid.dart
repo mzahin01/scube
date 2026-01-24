@@ -1,5 +1,6 @@
 import 'package:flutter/material.dart';
 import 'package:get/get.dart';
+import '../../../shared/const/image_asset.dart';
 import '../../../shared/styles/colors.dart';
 import '../controllers/page_one_controller.dart';
 import 'stat_card.dart';
@@ -20,7 +21,7 @@ class StatsGrid extends StatelessWidget {
               Expanded(
                 child: Obx(
                   () => StatCard(
-                    iconData: Icons.flash_on,
+                    imagePath: ImageAsset.liveAcPower,
                     iconColor: SGColors.blue,
                     value: controller.liveAcPower.value,
                     label: 'Live AC Power',
@@ -31,7 +32,7 @@ class StatsGrid extends StatelessWidget {
               Expanded(
                 child: Obx(
                   () => StatCard(
-                    iconData: Icons.wb_sunny_outlined,
+                    imagePath: ImageAsset.plantGeneration,
                     iconColor: SGColors.yellow,
                     value: controller.plantGeneration.value,
                     label: 'Plant Generation',
@@ -42,7 +43,7 @@ class StatsGrid extends StatelessWidget {
               Expanded(
                 child: Obx(
                   () => StatCard(
-                    iconData: Icons.speed,
+                    imagePath: ImageAsset.livePR,
                     iconColor: SGColors.success,
                     value: controller.livePR.value,
                     label: 'Live PR',
@@ -57,7 +58,7 @@ class StatsGrid extends StatelessWidget {
               Expanded(
                 child: Obx(
                   () => StatCard(
-                    iconData: Icons.trending_up,
+                    imagePath: ImageAsset.cumulativePR,
                     iconColor: SGColors.purple,
                     value: controller.cumulativePR.value,
                     label: 'Cumulative PR',
@@ -68,7 +69,7 @@ class StatsGrid extends StatelessWidget {
               Expanded(
                 child: Obx(
                   () => StatCard(
-                    iconData: Icons.attach_money,
+                    imagePath: ImageAsset.returnPV,
                     iconColor: SGColors.teal,
                     value: controller.returnPV.value,
                     label: 'Return PV(Till Today)',
@@ -79,7 +80,7 @@ class StatsGrid extends StatelessWidget {
               Expanded(
                 child: Obx(
                   () => StatCard(
-                    iconData: Icons.bolt,
+                    imagePath: ImageAsset.totalEnergyIcon,
                     iconColor: SGColors.cyan,
                     value: controller.totalEnergy.value,
                     label: 'Total Energy',
