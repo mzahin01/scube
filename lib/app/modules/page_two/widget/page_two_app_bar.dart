@@ -45,7 +45,7 @@ class PageTwoAppBar extends StatelessWidget {
                     borderRadius: BorderRadius.circular(12),
                     border: Border.all(color: SGColors.whiteShade2),
                   ),
-                  child: Image.asset(ImageAsset.bell),
+                  child: Image.asset(ImageAsset.bell, width: 25, height: 25),
                 ),
                 Positioned(
                   right: 8,

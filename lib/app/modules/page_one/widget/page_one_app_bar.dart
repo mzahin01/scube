@@ -1,4 +1,5 @@
 import 'package:flutter/material.dart';
+import '../../../shared/const/image_asset.dart';
 import '../../../shared/styles/colors.dart';
 import '../controllers/page_one_controller.dart';
 
@@ -32,39 +33,7 @@ class PageOneAppBar extends StatelessWidget {
               ),
             ),
           ),
-          GestureDetector(
-            onTap: controller.onNotificationTap,
-            child: Stack(
-              children: [
-                Container(
-                  width: 40,
-                  height: 40,
-                  decoration: BoxDecoration(
-                    color: SGColors.white,
-                    borderRadius: BorderRadius.circular(12),
-                    border: Border.all(color: SGColors.whiteShade2),
-                  ),
-                  child: const Icon(
-                    Icons.notifications_outlined,
-                    color: SGColors.blue,
-                    size: 22,
-                  ),
-                ),
-                Positioned(
-                  right: 8,
-                  top: 8,
-                  child: Container(
-                    width: 8,
-                    height: 8,
-                    decoration: const BoxDecoration(
-                      color: SGColors.red,
-                      shape: BoxShape.circle,
-                    ),
-                  ),
-                ),
-              ],
-            ),
-          ),
+          Image.asset(ImageAsset.bell, width: 25, height: 25),
         ],
       ),
     );
