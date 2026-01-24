@@ -1,5 +1,6 @@
 import 'package:flutter/material.dart';
 import 'package:get/get.dart';
+import '../../../routes/app_pages.dart';
 import '../../../shared/styles/colors.dart';
 
 class LoginController extends GetxController {
@@ -41,12 +42,7 @@ class LoginController extends GetxController {
 
       Future.delayed(const Duration(milliseconds: 10), () {
         isLoading.value = false;
-        Get.snackbar(
-          'Success',
-          'Login successful!',
-          backgroundColor: SGColors.success,
-          colorText: SGColors.white,
-        );
+        Get.toNamed(Routes.PAGE_ONE);
         // Navigate to home or dashboard
         // Get.offAllNamed(Routes.HOME);
       });

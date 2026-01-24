@@ -13,7 +13,7 @@ class Background extends StatelessWidget {
       color: SGColors.blue,
       child: Column(
         children: [
-          const SizedBox(height: 60),
+          const SizedBox(height: 100),
           Image.asset(ImageAsset.icon, width: 120, height: 120),
           const SizedBox(height: 24),
           const Text(

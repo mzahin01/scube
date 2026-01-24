@@ -12,13 +12,11 @@ class LoginView extends GetView<LoginController> {
   Widget build(BuildContext context) {
     return Scaffold(
       backgroundColor: SGColors.blue,
-      body: SafeArea(
-        child: Stack(
-          children: [
-            const Background(),
-            LoginModal(controller: controller),
-          ],
-        ),
+      body: Stack(
+        children: [
+          const Background(),
+          LoginModal(controller: controller),
+        ],
       ),
     );
   }
