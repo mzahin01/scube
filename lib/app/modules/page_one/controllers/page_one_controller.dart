@@ -15,6 +15,8 @@ class PageOneController extends GetxController {
   final moduleTemperature = '17°C'.obs;
   final windSpeed = '26 MPH / NW'.obs;
   final effectiveIrradiation = '15.20 w/m²'.obs;
+  final currentWeatherIndex = 0.obs;
+  final weatherTimeSlots = <WeatherTimeSlot>[].obs;
 
   // Yesterday's Data
   final yesterdayAcMaxPower = '1636.50 kW'.obs;
@@ -40,6 +42,50 @@ class PageOneController extends GetxController {
   void onInit() {
     super.onInit();
     loadInverterData();
+    loadWeatherTimeSlots();
+  }
+
+  void loadWeatherTimeSlots() {
+    weatherTimeSlots.value = [
+      WeatherTimeSlot(
+        timeRange: '11:00 am - 12:00 pm',
+        temperature: '17°C',
+        temperatureValue: 17,
+        windSpeed: '26 MPH / NW',
+        effectiveIrradiation: '15.20 w/m²',
+        weatherIcon: 'moon',
+      ),
+      WeatherTimeSlot(
+        timeRange: '12:00 pm - 01:00 pm',
+        temperature: '30°C',
+        temperatureValue: 30,
+        windSpeed: '26 MPH / NW',
+        effectiveIrradiation: '15.20 w/m²',
+        weatherIcon: 'sun',
+      ),
+      WeatherTimeSlot(
+        timeRange: '02:30 pm - 03:30 pm',
+        temperature: '19°C',
+        temperatureValue: 19,
+        windSpeed: '26 MPH / NW',
+        effectiveIrradiation: '15.20 w/m²',
+        weatherIcon: 'cloud',
+      ),
+    ];
+    // Set initial values
+    if (weatherTimeSlots.isNotEmpty) {
+      updateWeatherData(0);
+    }
+  }
+
+  void updateWeatherData(int index) {
+    if (index < weatherTimeSlots.length) {
+      currentWeatherIndex.value = index;
+      final slot = weatherTimeSlots[index];
+      moduleTemperature.value = slot.temperature;
+      windSpeed.value = slot.windSpeed;
+      effectiveIrradiation.value = slot.effectiveIrradiation;
+    }
   }
 
   void loadInverterData() {
@@ -92,5 +138,23 @@ class InverterData {
     required this.todayEnergy,
     required this.prevMeterEnergy,
     required this.livePower,
+  });
+}
+
+class WeatherTimeSlot {
+  final String timeRange;
+  final String temperature;
+  final int temperatureValue;
+  final String windSpeed;
+  final String effectiveIrradiation;
+  final String weatherIcon; // 'sun', 'moon', 'cloud'
+
+  WeatherTimeSlot({
+    required this.timeRange,
+    required this.temperature,
+    required this.temperatureValue,
+    required this.windSpeed,
+    required this.effectiveIrradiation,
+    required this.weatherIcon,
   });
 }
