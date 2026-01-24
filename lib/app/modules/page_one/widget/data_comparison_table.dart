@@ -10,88 +10,86 @@ class DataComparisonTable extends StatelessWidget {
 
   @override
   Widget build(BuildContext context) {
-    return Padding(
-      padding: const EdgeInsets.all(16),
-      child: Container(
-        padding: const EdgeInsets.symmetric(horizontal: 16, vertical: 20),
-        decoration: BoxDecoration(
-          color: SGColors.blueShade1,
-          borderRadius: BorderRadius.circular(16),
-        ),
-        child: Column(
-          children: [
-            // Header
-            const Row(
-              children: [
-                Expanded(flex: 3, child: SizedBox()),
-                Expanded(
-                  flex: 3,
-                  child: Text(
-                    "Yesterday's Data",
-                    textAlign: TextAlign.center,
-                    style: TextStyle(
-                      fontSize: 12,
-                      fontWeight: FontWeight.w600,
-                      color: SGColors.black,
-                    ),
+    return Container(
+      margin: const EdgeInsets.symmetric(horizontal: 16, vertical: 20),
+      decoration: BoxDecoration(
+        color: SGColors.whiteShade1,
+        borderRadius: BorderRadius.circular(16),
+      ),
+      child: Column(
+        children: [
+          // Header
+          const Row(
+            children: [
+              Expanded(flex: 3, child: SizedBox()),
+              Expanded(
+                flex: 3,
+                child: Text(
+                  "Yesterday's Data",
+                  textAlign: TextAlign.center,
+                  style: TextStyle(
+                    fontSize: 12,
+                    fontWeight: FontWeight.w600,
+                    color: SGColors.black,
                   ),
                 ),
-                Expanded(
-                  flex: 3,
-                  child: Text(
-                    "Today's Data",
-                    textAlign: TextAlign.center,
-                    style: TextStyle(
-                      fontSize: 12,
-                      fontWeight: FontWeight.w600,
-                      color: SGColors.black,
-                    ),
+              ),
+              Expanded(
+                flex: 3,
+                child: Text(
+                  "Today's Data",
+                  textAlign: TextAlign.center,
+                  style: TextStyle(
+                    fontSize: 12,
+                    fontWeight: FontWeight.w600,
+                    color: SGColors.black,
                   ),
                 ),
-              ],
-            ),
-            const Divider(height: 24, color: SGColors.whiteShade3),
-            Obx(
-              () => DataRowWidget(
-                label: 'AC Max Power',
-                yesterday: controller.yesterdayAcMaxPower.value,
-                today: controller.todayAcMaxPower.value,
               ),
+            ],
+          ),
+          const Divider(height: 10, color: SGColors.whiteShade3),
+          Obx(
+            () => DataRowWidget(
+              label: 'AC Max Power',
+              yesterday: controller.yesterdayAcMaxPower.value,
+              today: controller.todayAcMaxPower.value,
+              backgroundColor: SGColors.white,
             ),
-            const SizedBox(height: 16),
-            Obx(
-              () => DataRowWidget(
-                label: 'Net Energy',
-                yesterday: controller.yesterdayNetEnergy.value,
-                today: controller.todayNetEnergy.value,
-              ),
+          ),
+          Obx(
+            () => DataRowWidget(
+              label: 'Net Energy',
+              yesterday: controller.yesterdayNetEnergy.value,
+              today: controller.todayNetEnergy.value,
+              backgroundColor: SGColors.blueShade1,
             ),
-            const SizedBox(height: 16),
-            Obx(
-              () => DataRowWidget(
-                label: 'Specific Yield',
-                yesterday: controller.yesterdaySpecificYield.value,
-                today: controller.todaySpecificYield.value,
-              ),
+          ),
+          Obx(
+            () => DataRowWidget(
+              label: 'Specific Yield',
+              yesterday: controller.yesterdaySpecificYield.value,
+              today: controller.todaySpecificYield.value,
+              backgroundColor: SGColors.white,
             ),
-            const SizedBox(height: 16),
-            Obx(
-              () => DataRowWidget(
-                label: 'Net Energy',
-                yesterday: controller.yesterdayNetEnergy.value,
-                today: controller.todayNetEnergy.value,
-              ),
+          ),
+          Obx(
+            () => DataRowWidget(
+              label: 'Net Energy',
+              yesterday: controller.yesterdayNetEnergy.value,
+              today: controller.todayNetEnergy.value,
+              backgroundColor: SGColors.blueShade1,
             ),
-            const SizedBox(height: 16),
-            Obx(
-              () => DataRowWidget(
-                label: 'Specific Yield',
-                yesterday: controller.yesterdaySpecificYield.value,
-                today: controller.todaySpecificYield.value,
-              ),
+          ),
+          Obx(
+            () => DataRowWidget(
+              label: 'Specific Yield',
+              yesterday: controller.yesterdaySpecificYield.value,
+              today: controller.todaySpecificYield.value,
+              backgroundColor: SGColors.white,
             ),
-          ],
-        ),
+          ),
+        ],
       ),
     );
   }
@@ -101,50 +99,62 @@ class DataRowWidget extends StatelessWidget {
   final String label;
   final String yesterday;
   final String today;
+  final Color backgroundColor;
 
   const DataRowWidget({
     super.key,
     required this.label,
     required this.yesterday,
     required this.today,
+    required this.backgroundColor,
   });
 
   @override
   Widget build(BuildContext context) {
-    return Row(
-      children: [
-        Expanded(
-          flex: 3,
-          child: Text(
-            label,
-            style: const TextStyle(fontSize: 12, color: SGColors.secondaryText),
-          ),
-        ),
-        Expanded(
-          flex: 3,
-          child: Text(
-            yesterday,
-            textAlign: TextAlign.center,
-            style: const TextStyle(
-              fontSize: 12,
-              fontWeight: FontWeight.w600,
-              color: SGColors.deepBlue,
+    return Container(
+      padding: const EdgeInsets.symmetric(vertical: 12, horizontal: 12),
+      decoration: BoxDecoration(
+        color: backgroundColor,
+        borderRadius: BorderRadius.circular(8),
+      ),
+      child: Row(
+        children: [
+          Expanded(
+            flex: 3,
+            child: Text(
+              label,
+              style: const TextStyle(
+                fontSize: 12,
+                color: SGColors.secondaryText,
+              ),
             ),
           ),
-        ),
-        Expanded(
-          flex: 3,
-          child: Text(
-            today,
-            textAlign: TextAlign.center,
-            style: const TextStyle(
-              fontSize: 12,
-              fontWeight: FontWeight.w600,
-              color: SGColors.deepBlue,
+          Expanded(
+            flex: 3,
+            child: Text(
+              yesterday,
+              textAlign: TextAlign.center,
+              style: const TextStyle(
+                fontSize: 12,
+                fontWeight: FontWeight.w600,
+                color: SGColors.deepBlue,
+              ),
             ),
           ),
-        ),
-      ],
+          Expanded(
+            flex: 3,
+            child: Text(
+              today,
+              textAlign: TextAlign.center,
+              style: const TextStyle(
+                fontSize: 12,
+                fontWeight: FontWeight.w600,
+                color: SGColors.deepBlue,
+              ),
+            ),
+          ),
+        ],
+      ),
     );
   }
 }
