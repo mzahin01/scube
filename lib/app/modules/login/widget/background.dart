@@ -1,21 +1,8 @@
 import 'package:flutter/material.dart';
-import 'package:get/get.dart';
 import '../../../shared/const/image_asset.dart';
-import '../controllers/splash_controller.dart';
 
-class SplashView extends GetView<SplashController> {
-  const SplashView({super.key});
-
-  @override
-  Widget build(BuildContext context) {
-    return Scaffold(body: Splash(controller: controller));
-  }
-}
-
-class Splash extends StatelessWidget {
-  const Splash({super.key, required this.controller});
-
-  final SplashController controller;
+class Background extends StatelessWidget {
+  const Background({super.key});
 
   @override
   Widget build(BuildContext context) {
@@ -49,12 +36,6 @@ class Splash extends StatelessWidget {
                 fontWeight: FontWeight.w400,
               ),
             ),
-            Obx(() {
-              if (!controller.shouldNavigate.value) {
-                controller.startTimer();
-              }
-              return const SizedBox.shrink();
-            }),
           ],
         ),
       ),

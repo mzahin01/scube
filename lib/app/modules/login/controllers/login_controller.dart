@@ -39,7 +39,7 @@ class LoginController extends GetxController {
       isLoading.value = true;
 
       // Simulate login
-      Future.delayed(const Duration(seconds: 2), () {
+      Future.delayed(const Duration(milliseconds: 10), () {
         isLoading.value = false;
         Get.snackbar(
           'Success',
