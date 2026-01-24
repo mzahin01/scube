@@ -11,5 +11,6 @@ class ImageAsset {
   static const String transmissionTower = 'assets/pngs/ect1.png';
   static const String solarPanel = 'assets/pngs/ect2.png';
   static const String battery = 'assets/pngs/ect3.png';
+  static const String bell = 'assets/pngs/bell.png';
   ImageAsset._();
 }

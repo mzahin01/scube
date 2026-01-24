@@ -1,4 +1,5 @@
 import 'package:flutter/material.dart';
+import 'package:scube/app/shared/const/image_asset.dart';
 import '../../../shared/styles/colors.dart';
 import '../controllers/page_two_controller.dart';
 
@@ -44,11 +45,7 @@ class PageTwoAppBar extends StatelessWidget {
                     borderRadius: BorderRadius.circular(12),
                     border: Border.all(color: SGColors.whiteShade2),
                   ),
-                  child: const Icon(
-                    Icons.notifications_outlined,
-                    color: SGColors.blue,
-                    size: 22,
-                  ),
+                  child: Image.asset(ImageAsset.bell),
                 ),
                 Positioned(
                   right: 8,
